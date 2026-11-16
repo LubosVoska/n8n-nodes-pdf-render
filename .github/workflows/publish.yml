@@ -30,7 +30,5 @@ jobs:
           fi
       - run: npm ci
       - run: npm test
+      # Authenticates with npm trusted publishing (OIDC); no token or secret is needed.
       - run: npm publish --provenance --access public
-        env:
-          # Only needed until trusted publishing is configured on npmjs.com; then delete the NPM_TOKEN secret.
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
